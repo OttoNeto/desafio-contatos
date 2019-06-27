@@ -8,7 +8,7 @@ Mysql, jsf, maven, jdk;
 
 
 
-crie uma base de dados chamada 'db`cadastro';
+crie uma base de dados chamada 'db_cadastro';
 e a tabela.
 
 create table contatos (
