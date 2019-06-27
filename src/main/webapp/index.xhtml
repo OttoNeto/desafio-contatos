@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <center>
+            <h2>Contatos: </h2>
+            <h:form>
+                <table>
+                    <tr class="order-table-odd-row"> 
+                        <td>Contato: </td> 
+                        <td><h:inputText value="#{contatosBean.nome}"></h:inputText></td>
+                    </tr>
+                    <tr class="order-table-odd-row"> 
+                        <td>Telefone: </td> 
+                        <td><h:inputText value="#{contatosBean.telefone}"></h:inputText></td>
+                    </tr>
+                    <td/>
+                    <td><h:commandButton value="adicionar" action="#{contatosBean.adicionar()}"></h:commandButton></td>
+                </table>
+                <br></br>
+                <br></br>
+                
+                                     
+                
+                <h:commandButton value="Buscar" action="#{contatosBean.navegarBuscar()}"></h:commandButton>   
+                
+                <br></br>
+                <br></br>
+                <h:dataTable value="#{contatosBean.listarTudo()}" var="contato">
+
+                    <h:column>                    
+                        <f:facet name="header">ID</f:facet>
+                        <h:outputText value="#{contato.id}"></h:outputText>
+                    </h:column>
+                    <h:column>                    
+                        <f:facet name="header">Contatos</f:facet>
+                        <h:outputText value="#{contato.nome}"></h:outputText>
+                    </h:column>
+                    <h:column>                    
+                        <f:facet name="header">Tel</f:facet>
+                        <h:outputText value="#{contato.telefone}"></h:outputText>
+                    </h:column>
+
+
+                    <h:column>                    
+                        <f:facet name="header">Editar</f:facet>
+                        <h:commandButton value="editar" action="${contatosBean.editar( )}">
+                            <f:param name="action" value="${contato.id}"/>
+                        </h:commandButton>
+                    </h:column>
+
+                    <h:column>                    
+                        <f:facet name="header">Deletar</f:facet>
+                        <h:commandButton value="deletar" action="${contatosBean.deletar()}">
+                            <f:param name="action" value="${contato.id}"/>
+                        </h:commandButton>
+                    </h:column>
+
+                </h:dataTable>
+                
+                
+                
+                
+                
+            </h:form>
+        </center>
+    </h:body>
+</html>
+
